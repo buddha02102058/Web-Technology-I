@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <form id ="emailform">
+    <label>Email</label>
+    <input type="Email" id ="email" placeholder="Enter your Email">
+    </form>
+
+    <p id="result"> 
+        
+    </p>
+
+    <script>
+        document.getElementById("emailform").addEventListener("input", function(event) {
+            event.preventDefault();
+            const email = document.getElementById("email").value;
+            
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            const resultElement = document.getElementById("result");
+
+            if (emailPattern.test(email)) {
+                resultElement.textContent = "Valid Email Address";
+                resultElement.style.color = "green";
+            } else {
+                resultElement.textContent = "Invalid Email Address";
+                resultElement.style.color = "red";
+            }
+        });
+    </script>
+</body>
+</html>
